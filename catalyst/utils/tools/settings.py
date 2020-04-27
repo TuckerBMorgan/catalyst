@@ -15,16 +15,8 @@ class Settings(FrozenClass):
         cv_required: bool = False,
         ml_required: bool = False,
         nlp_required: bool = False,
-        state_main_metric: str = "loss",
-        stage_train_prefix: str = "train",
-        stage_valid_prefix: str = "valid",
-        stage_infer_prefix: str = "infer",
-        loader_train_prefix: str = "train",
-        loader_valid_prefix: str = "valid",
-        loader_infer_prefix: str = "infer",
-        check_run_num_batch_steps: int = 2,
-        check_run_num_epoch_steps: int = 2,
         alchemy_logger_required: Optional[bool] = None,
+        visdom_logger_required: Optional[bool] = None,
         neptune_logger_required: Optional[bool] = None,
         wandb_logger_required: Optional[bool] = None,
         telegram_logger_token: str = "",
@@ -43,25 +35,22 @@ class Settings(FrozenClass):
         self.ml_required: bool = ml_required
         self.nlp_required: bool = nlp_required
 
-        self.state_main_metric: str = state_main_metric  # @TODO: remove
-
         # stages
-        self.stage_train_prefix: str = stage_train_prefix  # @TODO: remove
-        self.stage_valid_prefix: str = stage_valid_prefix  # @TODO: remove
-        self.stage_infer_prefix: str = stage_infer_prefix  # @TODO: remove
+        self.stage_train_prefix: str = "train"
+        self.stage_valid_prefix: str = "valid"
+        self.stage_infer_prefix: str = "infer"
 
         # loader
-        self.loader_train_prefix: str = loader_train_prefix  # @TODO: remove
-        self.loader_valid_prefix: str = loader_valid_prefix  # @TODO: remove
-        self.loader_infer_prefix: str = loader_infer_prefix  # @TODO: remove
-
-        # callbacks
-        self.check_run_num_batch_steps: int = check_run_num_batch_steps  # noqa: E501, @TODO: remove
-        self.check_run_num_epoch_steps: int = check_run_num_epoch_steps  # noqa: E501, @TODO: remove
+        self.loader_train_prefix: str = "train"
+        self.loader_valid_prefix: str = "valid"
+        self.loader_infer_prefix: str = "infer"
 
         # [catalyst-contrib]
         self.alchemy_logger_required: bool = self._optional_value(
             alchemy_logger_required, default=contrib_required
+        )
+        self.visdom_logger_required: bool = self._optional_value(
+            visdom_logger_required, default=contrib_required
         )
         self.neptune_logger_required: bool = self._optional_value(
             neptune_logger_required, default=contrib_required

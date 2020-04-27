@@ -26,7 +26,7 @@ try:
     import visdom
     from .visdom_logger import VisdomLogger
 except ImportError as ex:
-    if os.environ.get("USE_VISDOM", "0") == "1":
+    if settings.visdom_logger_required:
         logger.warning(
             "visdom not available, to install visdom, "
             "run `pip install visdom`."
@@ -58,7 +58,7 @@ except ImportError as ex:
 try:
     import imageio
     import skimage.color
-    from catalyst.contrib.dl.cv.inference import InferMaskCallback
+    from catalyst.contrib.dl.callbacks.cv import InferMaskCallback
 except ImportError as ex:
     if settings.cv_required:
         logger.exception(

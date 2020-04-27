@@ -286,7 +286,7 @@ class State(FrozenClass):
         logdir: str = None,
         stage: str = settings.stage_infer_prefix,
         num_epochs: int = 1,
-        main_metric: str = settings.state_main_metric,
+        main_metric: str = "loss",
         minimize_metric: bool = True,
         valid_loader: str = settings.loader_valid_prefix,
         checkpoint_data: Dict = None,

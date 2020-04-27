@@ -5,11 +5,7 @@ from catalyst.utils.tools import settings
 class CheckRunCallback(Callback):
     """@TODO: Docs. Contribution is welcome."""
 
-    def __init__(
-        self,
-        num_batch_steps: int = settings.check_run_num_batch_steps,
-        num_epoch_steps: int = settings.check_run_num_epoch_steps,
-    ):
+    def __init__(self, num_batch_steps: int = 2, num_epoch_steps: int = 3):
         """@TODO: Docs. Contribution is welcome."""
         super().__init__(order=CallbackOrder.External, node=CallbackNode.All)
         self.num_batch_steps = num_batch_steps
