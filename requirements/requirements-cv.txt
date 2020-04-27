@@ -1,6 +1,6 @@
 albumentations==0.4.3
 imageio
-Pillow<7
+Pillow
 scikit-image>=0.14.2
 segmentation-models-pytorch==0.1.0
-torchvision>=0.2.1
+torchvision>=0.3.0
