@@ -2,11 +2,11 @@ from typing import List
 
 import torch
 
-from catalyst.contrib.data.models.cv.segmentation.blocks import (
+from catalyst.contrib.models.cv.segmentation.blocks import (
     EncoderBlock,
     EncoderDownsampleBlock,
 )
-from catalyst.contrib.data.models.cv.segmentation.bridge.core import BridgeSpec
+from catalyst.contrib.models.cv.segmentation.bridge.core import BridgeSpec
 
 
 class UnetBridge(BridgeSpec):

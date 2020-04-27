@@ -1,7 +1,7 @@
 from typing import Tuple, Union
 
+from catalyst.contrib.utils.image import imread, mimread
 from catalyst.data.reader import ReaderSpec
-from catalyst.utils import imread, mimread
 
 
 class ImageReader(ReaderSpec):

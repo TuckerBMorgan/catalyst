@@ -1,19 +1,19 @@
 from typing import Dict
 
-from catalyst.contrib.data.models.cv.segmentation.blocks import (
+from catalyst.contrib.models.cv.segmentation.blocks import (
     EncoderDownsampleBlock,
 )
-from catalyst.contrib.data.models.cv.segmentation.bridge import UnetBridge
-from catalyst.contrib.data.models.cv.segmentation.core import (
+from catalyst.contrib.models.cv.segmentation.bridge import UnetBridge
+from catalyst.contrib.models.cv.segmentation.core import (
     ResnetUnetSpec,
     UnetSpec,
 )
-from catalyst.contrib.data.models.cv.segmentation.decoder import FPNDecoder
-from catalyst.contrib.data.models.cv.segmentation.encoder import (
+from catalyst.contrib.models.cv.segmentation.decoder import FPNDecoder
+from catalyst.contrib.models.cv.segmentation.encoder import (
     ResnetEncoder,
     UnetEncoder,
 )
-from catalyst.contrib.data.models.cv.segmentation.head import FPNHead
+from catalyst.contrib.models.cv.segmentation.head import FPNHead
 
 
 class FPNUnet(UnetSpec):

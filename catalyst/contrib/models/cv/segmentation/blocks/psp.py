@@ -5,8 +5,8 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from catalyst.contrib.data.models.cv.segmentation.abn import ABN
-from catalyst.contrib.data.models.cv.segmentation.core import _get_block
+from catalyst.contrib.models.cv.segmentation.abn import ABN
+from catalyst.contrib.models.cv.segmentation.blocks.core import _get_block
 
 
 class PyramidBlock(nn.Module):

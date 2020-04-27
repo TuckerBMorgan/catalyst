@@ -1,15 +1,15 @@
 from typing import Dict
 
-from catalyst.contrib.data.models.cv.segmentation.core import (
+from catalyst.contrib.models.cv.segmentation.core import (
     ResnetUnetSpec,
     UnetSpec,
 )
-from catalyst.contrib.data.models.cv.segmentation.decoder import PSPDecoder
-from catalyst.contrib.data.models.cv.segmentation.encoder import (
+from catalyst.contrib.models.cv.segmentation.decoder import PSPDecoder
+from catalyst.contrib.models.cv.segmentation.encoder import (
     ResnetEncoder,
     UnetEncoder,
 )
-from catalyst.contrib.data.models.cv.segmentation.head import UnetHead
+from catalyst.contrib.models.cv.segmentation.head import UnetHead
 
 
 class PSPnet(UnetSpec):

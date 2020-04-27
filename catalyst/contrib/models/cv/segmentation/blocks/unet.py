@@ -2,8 +2,8 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from catalyst.contrib.data.models.cv.segmentation.abn import ABN
-from catalyst.contrib.data.models.cv.segmentation.blocks.core import (
+from catalyst.contrib.models.cv.segmentation.abn import ABN
+from catalyst.contrib.models.cv.segmentation.blocks.core import (
     _get_block,
     _upsample,
     DecoderBlock,

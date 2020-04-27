@@ -3,10 +3,10 @@ from typing import List
 import torch
 from torch import nn
 
-from catalyst.contrib.data.models.cv.segmentation.blocks.unet import (
+from catalyst.contrib.models.cv.segmentation.blocks.unet import (
     EncoderDownsampleBlock,
 )
-from catalyst.contrib.data.models.cv.segmentation.encoder.core import (
+from catalyst.contrib.models.cv.segmentation.encoder.core import (
     _take,
     EncoderSpec,
 )

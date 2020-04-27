@@ -4,14 +4,14 @@ from pathlib import Path
 import torch
 from torch import nn
 
-from catalyst.contrib.data.models.cv.segmentation.bridge import BridgeSpec
-from catalyst.contrib.data.models.cv.segmentation.decoder import DecoderSpec
-from catalyst.contrib.data.models.cv.segmentation.encoder import (
+from catalyst.contrib.models.cv.segmentation.bridge import BridgeSpec
+from catalyst.contrib.models.cv.segmentation.decoder import DecoderSpec
+from catalyst.contrib.models.cv.segmentation.encoder import (
     EncoderSpec,
     ResnetEncoder,
     UnetEncoder,
 )
-from catalyst.contrib.data.models.cv.segmentation.head import HeadSpec
+from catalyst.contrib.models.cv.segmentation.head import HeadSpec
 
 
 class UnetMetaSpec(nn.Module):
