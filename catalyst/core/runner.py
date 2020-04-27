@@ -415,7 +415,9 @@ class _Runner(ABC):
         assert state.loaders is not None
         loaders = state.loaders
 
-        state.is_infer_stage = state.stage_name.startswith(settings.stage_infer_prefix)
+        state.is_infer_stage = state.stage_name.startswith(
+            settings.stage_infer_prefix
+        )
         if not state.is_infer_stage:
             assert state.valid_loader in loaders.keys(), (
                 f"'{state.valid_loader}' "
