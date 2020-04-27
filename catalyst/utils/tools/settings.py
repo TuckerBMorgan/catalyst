@@ -100,7 +100,12 @@ default_settings = Settings()
 
 
 class ConfigFileFinder:
-    """Encapsulate the logic for finding and reading config files."""
+    """Encapsulate the logic for finding and reading config files.
+
+    Main origins of inspiration:
+        - https://gitlab.com/pwoolvett/flake8 (MIT License)
+        - https://github.com/python/mypy (MIT License)
+    """
 
     def __init__(self, program_name: str) -> None:
         """Initialize object to find config files.
@@ -200,6 +205,10 @@ class MergedConfigParser:
     This parses out the options registered that were specified in the
     configuration files, handles extra configuration files, and returns
     dictionaries with the parsed values.
+
+    Main origins of inspiration:
+        - https://gitlab.com/pwoolvett/flake8 (MIT License)
+        - https://github.com/python/mypy (MIT License)
     """
 
     #: Set of actions that should use the
