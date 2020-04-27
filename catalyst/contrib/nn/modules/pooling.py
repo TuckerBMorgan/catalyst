@@ -180,3 +180,14 @@ class GlobalConcatAttnPool2d(nn.Module):
             in_features: number of channels in the input sample
         """
         return in_features * 3
+
+
+__all__ = [
+    "GlobalAvgPool2d",
+    "GlobalMaxPool2d",
+    "GlobalConcatPool2d",
+    "GlobalAttnPool2d",
+    "GlobalAvgAttnPool2d",
+    "GlobalMaxAttnPool2d",
+    "GlobalConcatAttnPool2d",
+]

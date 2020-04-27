@@ -141,3 +141,6 @@ class DecoderBlock(ABC, nn.Module):
     ) -> torch.Tensor:
         """Forward call."""
         pass
+
+
+__all__ = ["EncoderBlock", "DecoderBlock"]

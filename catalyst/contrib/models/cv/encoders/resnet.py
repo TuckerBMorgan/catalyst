@@ -86,3 +86,6 @@ class ResnetEncoder(nn.Module):
         """Extract the image feature vectors."""
         features = self.encoder(image)
         return features
+
+
+__all__ = ["ResnetEncoder"]

@@ -4,5 +4,9 @@
 from catalyst.core import *
 
 from catalyst.dl.callbacks import *
-from catalyst.dl.experiment import *
-from catalyst.dl.runner import *
+from catalyst.dl.experiment import (
+    ConfigExperiment,
+    Experiment,
+    SupervisedExperiment,
+)
+from catalyst.dl.runner import Runner, SupervisedRunner

@@ -47,3 +47,6 @@ class Normalize(nn.Module):
     def forward(self, x):
         """Forward call."""
         return F.normalize(x, **self.normalize_kwargs)
+
+
+__all__ = ["Flatten", "Lambda", "Normalize"]

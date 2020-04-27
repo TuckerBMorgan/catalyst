@@ -71,3 +71,6 @@ class FPNDecoder(DecoderSpec):
             fpn_features.append(fpn_block(fpn_features[-1], encoder_output))
 
         return fpn_features
+
+
+__all__ = ["FPNDecoder"]

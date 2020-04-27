@@ -199,3 +199,6 @@ class Hydra(nn.Module):
         net = cls(heads=heads, encoder=encoder, embedders=embedders,)
 
         return net
+
+
+__all__ = ["Hydra"]

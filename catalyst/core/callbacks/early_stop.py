@@ -1,5 +1,4 @@
 from catalyst.core import Callback, CallbackNode, CallbackOrder, State
-from catalyst.utils.tools import settings
 
 
 class CheckRunCallback(Callback):

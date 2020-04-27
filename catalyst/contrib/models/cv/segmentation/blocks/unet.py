@@ -247,3 +247,11 @@ class DecoderSumBlock(DecoderConcatBlock):
             x = x + left
 
         return x
+
+
+__all__ = [
+    "EncoderDownsampleBlock",
+    "EncoderUpsampleBlock",
+    "DecoderConcatBlock",
+    "DecoderSumBlock",
+]

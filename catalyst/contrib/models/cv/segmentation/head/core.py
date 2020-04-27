@@ -24,3 +24,6 @@ class HeadSpec(ABC, nn.Module):
     def forward(self, x: List[torch.Tensor]) -> torch.Tensor:
         """Forward call."""
         pass
+
+
+__all__ = ["HeadSpec"]

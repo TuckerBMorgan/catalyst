@@ -1,6 +1,20 @@
 # flake8: noqa
-from catslyst.contrib.models.cv.segmentation.blocks.psp import *
+from catslyst.contrib.models.cv.segmentation.blocks.psp import (
+    PSPBlock,
+    PyramidBlock,
+)
 
-from catalyst.contrib.models.cv.segmentation.blocks.core import *
-from catalyst.contrib.models.cv.segmentation.blocks.fpn import *
-from catalyst.contrib.models.cv.segmentation.blocks.unet import *
+from catalyst.contrib.models.cv.segmentation.blocks.core import (
+    DecoderBlock,
+    EncoderBlock,
+)
+from catalyst.contrib.models.cv.segmentation.blocks.fpn import (
+    DecoderFPNBlock,
+    SegmentationBlock,
+)
+from catalyst.contrib.models.cv.segmentation.blocks.unet import (
+    DecoderConcatBlock,
+    DecoderSumBlock,
+    EncoderDownsampleBlock,
+    EncoderUpsampleBloc,
+)

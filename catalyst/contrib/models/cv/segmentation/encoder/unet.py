@@ -69,3 +69,6 @@ class UnetEncoder(EncoderSpec):
                 x = self.__getattr__(f"pool{i + 1}")(x)
         output = _take(output, self._layers_indices)
         return output
+
+
+__all__ = ["UnetEncoder"]

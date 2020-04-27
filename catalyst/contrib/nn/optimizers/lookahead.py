@@ -108,3 +108,6 @@ class Lookahead(Optimizer):
         )
         optimizer = cls(optimizer=base_optimizer, **kwargs)
         return optimizer
+
+
+__all__ = ["Lookahead"]

@@ -1,6 +1,11 @@
 # flake8: noqa
 
-from catalyst.core.callback import *
+from catalyst.core.callback import (
+    Callback,
+    CallbackNode,
+    CallbackOrder,
+    CallbackScope,
+)
 from catalyst.core.callbacks import *
 from catalyst.dl.callbacks.confusion_matrix import ConfusionMatrixCallback
 from catalyst.dl.callbacks.inference import InferCallback
