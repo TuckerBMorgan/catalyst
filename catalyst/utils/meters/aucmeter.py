@@ -12,7 +12,7 @@ import numpy as np
 
 import torch
 
-from . import meter
+from catalyst.utils.meters import meter
 
 
 class AUCMeter(meter.Meter):

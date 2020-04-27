@@ -7,6 +7,10 @@ from torch import nn
 from torch.utils.data import DataLoader, DistributedSampler
 
 from catalyst.core import utils
+from catalyst.core.callback import Callback, CallbackScope
+from catalyst.core.callbacks import ExceptionCallback
+from catalyst.core.experiment import _Experiment, _StageBasedExperiment
+from catalyst.core.state import State
 from catalyst.utils.tools import settings
 from catalyst.utils.tools.typing import (
     Criterion,
@@ -15,11 +19,6 @@ from catalyst.utils.tools.typing import (
     Optimizer,
     Scheduler,
 )
-
-from .callback import Callback, CallbackScope
-from .callbacks import ExceptionCallback
-from .experiment import _Experiment, _StageBasedExperiment
-from .state import State
 
 
 class _Runner(ABC):

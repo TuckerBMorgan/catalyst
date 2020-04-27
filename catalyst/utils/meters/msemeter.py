@@ -5,7 +5,7 @@ import math
 
 import torch
 
-from . import meter
+from catalyst.utils.meters import meter
 
 
 class MSEMeter(meter.Meter):

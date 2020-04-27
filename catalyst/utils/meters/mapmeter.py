@@ -5,7 +5,8 @@ from typing import Optional
 
 import torch
 
-from . import APMeter, meter
+from catalyst.utils.meters import meter
+from catalyst.utils.meters.apmeter import APMeter
 
 
 class mAPMeter(meter.Meter):

@@ -5,9 +5,8 @@ from collections import OrderedDict
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
 
+from catalyst.core.callback import Callback
 from catalyst.utils.tools.typing import Criterion, Model, Optimizer, Scheduler
-
-from .callback import Callback
 
 
 class _Experiment(ABC):

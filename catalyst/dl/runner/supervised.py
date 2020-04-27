@@ -4,9 +4,8 @@ import logging
 import torch
 
 from catalyst.dl import State, SupervisedExperiment
+from catalyst.dl.runner.core import Runner
 from catalyst.utils.tools.typing import Device, Model
-
-from .core import Runner
 
 logger = logging.getLogger(__name__)
 

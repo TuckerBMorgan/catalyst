@@ -7,8 +7,10 @@ from torch import nn
 import torchvision
 
 from catalyst import utils
-
-from .core import _take, EncoderSpec
+from catalyst.contrib.data.models.cv.segmentation.encoder.core import (
+    _take,
+    EncoderSpec,
+)
 
 RESNET_PARAMS = {
     "resnet18": {

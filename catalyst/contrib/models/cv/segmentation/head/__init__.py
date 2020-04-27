@@ -1,4 +1,4 @@
 # flake8: noqa
-from .core import *
-from .fpn import *
-from .unet import *
+from catalyst.contrib.data.models.cv.segmentation.head.core import *
+from catalyst.contrib.data.models.cv.segmentation.head.fpn import *
+from catalyst.contrib.data.models.cv.segmentation.head.unet import *

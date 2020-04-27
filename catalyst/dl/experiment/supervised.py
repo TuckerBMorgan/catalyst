@@ -8,9 +8,8 @@ from catalyst.dl import (
     OptimizerCallback,
     SchedulerCallback,
 )
+from catalyst.dl.experiment.core import Experiment
 from catalyst.utils.tools.typing import Criterion, Optimizer, Scheduler
-
-from .core import Experiment
 
 
 class SupervisedExperiment(Experiment):

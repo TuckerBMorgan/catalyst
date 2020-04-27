@@ -1,8 +1,7 @@
 from typing import Dict, List, Union
 
 from catalyst.core import State
-
-from .metrics import _MetricCallback
+from catalyst.core.callbacks.metrics import _MetricCallback
 
 
 class CriterionCallback(_MetricCallback):

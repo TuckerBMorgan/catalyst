@@ -4,9 +4,8 @@ import numpy as np
 
 from torch.optim import Optimizer
 
+from catalyst.contrib.nn.schedulers.base import BatchScheduler
 from catalyst.utils import get_optimizer_momentum
-
-from .base import BatchScheduler
 
 
 class OneCycleLRWithWarmup(BatchScheduler):

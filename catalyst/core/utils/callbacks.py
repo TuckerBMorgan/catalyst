@@ -2,7 +2,7 @@ from typing import Dict, Union
 from collections import OrderedDict
 
 from catalyst.core.callback import CallbackNode
-from catalyst.core.utils import get_rank
+from catalyst.utils.distributed import get_rank
 
 
 def sort_callbacks_by_order(

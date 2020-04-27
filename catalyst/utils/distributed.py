@@ -11,6 +11,7 @@ import torch
 from torch import nn
 import torch.distributed
 
+from catalyst.utils.misc import get_fn_default_params, maybe_recursive_call
 from catalyst.utils.tools.typing import (
     Criterion,
     Device,
@@ -18,9 +19,7 @@ from catalyst.utils.tools.typing import (
     Optimizer,
     Scheduler,
 )
-
-from .misc import get_fn_default_params, maybe_recursive_call
-from .torch import get_available_gpus, get_device
+from catalyst.utils.torch import get_available_gpus, get_device
 
 warnings.simplefilter("once")
 warnings.filterwarnings("once")

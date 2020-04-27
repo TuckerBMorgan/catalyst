@@ -2,19 +2,18 @@
 import logging
 import os
 
+from catalyst.contrib.dl.callbacks.criterion import CriterionAggregatorCallback
+from catalyst.contrib.dl.callbacks.cutmix_callback import CutmixCallback
+from catalyst.contrib.dl.callbacks.knn import KNNMetricCallback
+from catalyst.contrib.dl.callbacks.optimizer import SaveModelGradsCallback
+from catalyst.contrib.dl.callbacks.telegram_logger import TelegramLogger
 from catalyst.utils.tools import settings
-
-from .criterion import CriterionAggregatorCallback
-from .cutmix_callback import CutmixCallback
-from .knn import KNNMetricCallback
-from .optimizer import SaveModelGradsCallback
-from .telegram_logger import TelegramLogger
 
 logger = logging.getLogger(__name__)
 
 try:
     import alchemy
-    from .alchemy import AlchemyLogger
+    from catalyst.contrib.dl.alchemy import AlchemyLogger
 except ImportError as ex:
     if settings.alchemy_logger_required:
         logger.exception(
@@ -25,7 +24,7 @@ except ImportError as ex:
 
 try:
     import neptune
-    from .neptune import NeptuneLogger
+    from catalyst.contrib.dl.neptune import NeptuneLogger
 except ImportError as ex:
     if settings.neptune_logger_required:
         logger.exception(
@@ -36,7 +35,7 @@ except ImportError as ex:
 
 try:
     import wandb
-    from .wandb import WandbLogger
+    from catalyst.contrib.dl.wandb import WandbLogger
 except ImportError as ex:
     if settings.wandb_logger_required:
         logger.exception(
@@ -48,7 +47,7 @@ except ImportError as ex:
 try:
     import imageio
     import skimage.color
-    from .cv.inference import InferMaskCallback
+    from catalyst.contrib.dl.cv.inference import InferMaskCallback
 except ImportError as ex:
     if settings.cv_required:
         logger.exception(

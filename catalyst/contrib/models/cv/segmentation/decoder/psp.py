@@ -3,10 +3,12 @@ from functools import partial
 
 import torch
 
-from ..abn import ABN
-from ..blocks.core import _get_block
-from ..blocks.psp import PSPBlock
-from .core import DecoderSpec
+from catalyst.contrib.data.models.cv.segmentation.abn import ABN
+from catalyst.contrib.data.models.cv.segmentation.blocks.core import _get_block
+from catalyst.contrib.data.models.cv.segmentation.blocks.psp import PSPBlock
+from catalyst.contrib.data.models.cv.segmentation.decoder.core import (
+    DecoderSpec,
+)
 
 
 class PSPDecoder(DecoderSpec):

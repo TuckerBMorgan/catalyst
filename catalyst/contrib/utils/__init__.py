@@ -7,20 +7,29 @@ import os
 logger = logging.getLogger(__name__)
 
 from catalyst.utils.tools import settings
-from .argparse import boolean_flag
-from .compression import pack, pack_if_needed, unpack, unpack_if_needed
-from .confusion_matrix import (
+from catalyst.contrib.utils.argparse import boolean_flag
+from catalyst.contrib.utils.compression import (
+    pack,
+    pack_if_needed,
+    unpack,
+    unpack_if_needed,
+)
+from catalyst.contrib.utils.confusion_matrix import (
     calculate_tp_fp_fn,
     calculate_confusion_matrix_from_arrays,
     calculate_confusion_matrix_from_tensors,
 )
-from .dataset import create_dataset, split_dataset_train_test, create_dataframe
-from .misc import (
+from catalyst.contrib.utils.dataset import (
+    create_dataset,
+    split_dataset_train_test,
+    create_dataframe,
+)
+from catalyst.contrib.utils.misc import (
     args_are_not_none,
     make_tuple,
     pairwise,
 )
-from .pandas import (
+from catalyst.contrib.utils.pandas import (
     dataframe_to_list,
     folds_to_list,
     split_dataframe_train_test,
@@ -36,21 +45,15 @@ from .pandas import (
     read_csv_data,
     balance_classes,
 )
-from .parallel import parallel_imap, tqdm_parallel_imap, get_pool
-from .serialization import deserialize, serialize
+from catalyst.contrib.utils.parallel import (
+    parallel_imap,
+    tqdm_parallel_imap,
+    get_pool,
+)
+from catalyst.contrib.utils.serialization import deserialize, serialize
 
 try:
-    import plotly  # noqa: F401
-    from .plotly import plot_tensorboard_log, plot_metrics
-except ImportError as ex:
-    if os.environ.get("USE_PLOTLY", "0") == "1":
-        logger.warning(
-            "plotly not available, to install plotly,"
-            " run `pip install plotly`."
-        raise ex
-
-try:
-    from .image import (
+    from catalyst.contrib.utils.image import (
         has_image_extension,
         imread,
         imwrite,
@@ -61,6 +64,10 @@ try:
         tensor_from_rgb_image,
         tensor_to_ndimage,
     )
+    from catalyst.contrib.utils.visualization import (
+        plot_confusion_matrix,
+        render_figure_to_tensor,
+    )
 except ImportError as ex:
     if settings.cv_required:
         logger.exception(
@@ -70,8 +77,20 @@ except ImportError as ex:
         raise ex
 
 try:
-    import transformers  # noqa: F401
-    from .text import tokenize_text, process_bert_output
+    from catalyst.contrib.utils.plotly import (
+        plot_tensorboard_log,
+        plot_metrics,
+    )
+except ImportError as ex:
+    if os.environ.get("USE_PLOTLY", "0") == "1":
+        logger.warning(
+            "plotly not available, to install plotly,"
+            " run `pip install plotly`."
+        )
+        raise ex
+
+try:
+    from catalyst.contrib.utils.text import tokenize_text, process_bert_output
 except ImportError as ex:
     if settings.nlp_required:
         logger.exception(
@@ -79,8 +98,3 @@ except ImportError as ex:
             " to install dependencies, run `pip install catalyst[nlp]`."
         )
         raise ex
-
-from .visualization import (
-    plot_confusion_matrix,
-    render_figure_to_tensor,
-)

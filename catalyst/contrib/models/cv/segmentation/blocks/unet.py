@@ -2,8 +2,13 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from ..abn import ABN
-from .core import _get_block, _upsample, DecoderBlock, EncoderBlock
+from catalyst.contrib.data.models.cv.segmentation.abn import ABN
+from catalyst.contrib.data.models.cv.segmentation.blocks.core import (
+    _get_block,
+    _upsample,
+    DecoderBlock,
+    EncoderBlock,
+)
 
 
 class EncoderDownsampleBlock(EncoderBlock):

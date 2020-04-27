@@ -7,8 +7,7 @@ from tqdm import tqdm
 
 from catalyst.contrib.utils.tools.tensorboard import SummaryWriter
 from catalyst.core import Callback, CallbackNode, CallbackOrder, State, utils
-
-from . import formatters
+from catalyst.core.callbacks import formatters
 
 
 class VerboseLogger(Callback):

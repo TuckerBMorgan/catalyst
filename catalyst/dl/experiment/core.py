@@ -156,7 +156,7 @@ class Experiment(_StageBasedExperiment):
             loaders = utils.get_loaders_from_params(
                 initial_seed=initial_seed, **datasets,
             )
-        if not stage.startswith(STAGE_INFER_PREFIX):  # train stage
+        if not stage.startswith(settings.stage_infer_prefix):  # train stage
             if len(loaders) == 1:
                 valid_loader = list(loaders.keys())[0]
                 warnings.warn(
@@ -203,7 +203,6 @@ class Experiment(_StageBasedExperiment):
         self, stage: str, epoch: int = None,
     ) -> "OrderedDict[str, DataLoader]":
         """Returns the loaders for a given stage."""
-<<<<<<< HEAD
         if self._datasets is not None:
             self._loaders = utils.get_loaders_from_params(
                 initial_seed=self.initial_seed, **self._datasets,
@@ -219,8 +218,6 @@ class Experiment(_StageBasedExperiment):
                 "The validation loader must be present "
                 "in the loaders used during experiment."
             )
-=======
->>>>>>> origin/master
         return self._loaders
 
     def get_callbacks(self, stage: str) -> "OrderedDict[str, Callback]":

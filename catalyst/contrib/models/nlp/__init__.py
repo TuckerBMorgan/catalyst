@@ -1,5 +1,5 @@
 # flake8: noqa
 # isort:skip_file
 
-from .encoders import *
-from .classification import *
+from catalyst.contrib.models.nlp.encoders import *
+from catalyst.contrib.models.nlp.classification import *

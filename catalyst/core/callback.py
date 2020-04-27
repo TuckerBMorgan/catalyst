@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 from enum import IntFlag
 
 if TYPE_CHECKING:
-    from .state import State
+    from catalyst.core.state import State
 
 
 class CallbackNode(IntFlag):
