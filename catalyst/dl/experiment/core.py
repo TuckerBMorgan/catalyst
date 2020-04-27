@@ -203,21 +203,6 @@ class Experiment(_StageBasedExperiment):
         self, stage: str, epoch: int = None,
     ) -> "OrderedDict[str, DataLoader]":
         """Returns the loaders for a given stage."""
-        if self._datasets is not None:
-            self._loaders = utils.get_loaders_from_params(
-                initial_seed=self.initial_seed, **self._datasets,
-            )
-        if self._stage.startswith(settings.stage_train_prefix):
-            if len(self._loaders) == 1:
-                self._valid_loader = list(self._loaders.keys())[0]
-                warnings.warn(
-                    "Attention, there is only one dataloader - "
-                    + str(self._valid_loader)
-                )
-            assert self._valid_loader in self._loaders, (
-                "The validation loader must be present "
-                "in the loaders used during experiment."
-            )
         return self._loaders
 
     def get_callbacks(self, stage: str) -> "OrderedDict[str, Callback]":
