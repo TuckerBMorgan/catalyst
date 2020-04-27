@@ -80,12 +80,12 @@ class InferMaskCallback(Callback):
             state (State): current state
         """
         lm = state.loader_name
-        names = state.batch_in.get(self.name_key, [])
+        names = state.input.get(self.name_key, [])
 
-        features = state.batch_in[self.input_key].detach().cpu()
+        features = state.input[self.input_key].detach().cpu()
         images = utils.tensor_to_ndimage(features)
 
-        logits = state.batch_out[self.output_key]
+        logits = state.output[self.output_key]
         logits = (
             torch.unsqueeze_(logits, dim=1)
             if len(logits.shape) < 4

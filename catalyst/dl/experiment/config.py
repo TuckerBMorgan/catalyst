@@ -6,7 +6,7 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader  # noqa F401
 
-from catalyst.core import StageBasedExperiment
+from catalyst.core import _StageBasedExperiment
 from catalyst.data import Augmentor, AugmentorCompose
 from catalyst.dl import (
     Callback,
@@ -17,7 +17,6 @@ from catalyst.dl import (
     ExceptionCallback,
     MetricManagerCallback,
     OptimizerCallback,
-    PhaseWrapperCallback,
     SchedulerCallback,
     TensorboardLogger,
     TimerCallback,
@@ -36,7 +35,7 @@ from catalyst.dl.registry import (
 from catalyst.utils.tools.typing import Criterion, Model, Optimizer, Scheduler
 
 
-class ConfigExperiment(StageBasedExperiment):
+class ConfigExperiment(_StageBasedExperiment):
     """
     Experiment created from a configuration file.
     """
@@ -156,17 +155,13 @@ class ConfigExperiment(StageBasedExperiment):
         """Dict with the parameters for distributed and FP16 methond."""
         return self._config.get("distributed_params", {})
 
-    @property
-    def monitoring_params(self) -> Dict:
-        """Dict with the parameters for monitoring services."""
-        return self._config.get("monitoring_params", {})
-
     def get_state_params(self, stage: str) -> Mapping[str, Any]:
         """Returns the state parameters for a given stage."""
         return self.stages_config[stage].get("state_params", {})
 
     def _preprocess_model_for_stage(self, stage: str, model: Model):
         stage_index = self.stages.index(stage)
+        # @TODO: remove to callbacks
         if stage_index > 0:
             checkpoint_path = f"{self.logdir}/checkpoints/best.pth"
             checkpoint = utils.load_checkpoint(checkpoint_path)
@@ -489,8 +484,6 @@ class ConfigExperiment(StageBasedExperiment):
         for callback_name, callback_fn in default_callbacks:
             is_already_present = False
             for x in callbacks.values():
-                if isinstance(x, PhaseWrapperCallback):
-                    x = x.callback
                 if isinstance(x, callback_fn):
                     is_already_present = True
                     break

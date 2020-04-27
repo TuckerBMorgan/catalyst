@@ -51,7 +51,7 @@ class InferCallback(Callback):
         Args:
             state (State): current state
         """
-        dct = state.batch_out
+        dct = state.output
         dct = {key: value.detach().cpu().numpy() for key, value in dct.items()}
         for key, value in dct.items():
             self.predictions[key].append(value)

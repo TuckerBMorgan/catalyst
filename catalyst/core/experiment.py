@@ -29,7 +29,6 @@ class _Experiment(ABC):
 
         - :py:mod:`catalyst.dl.experiment.base.BaseExperiment`
         - :py:mod:`catalyst.dl.experiment.config.ConfigExperiment`
-        - :py:mod:`catalyst.dl.experiment.gan.GanExperiment`
         - :py:mod:`catalyst.dl.experiment.supervised.SupervisedExperiment`
     """
 
@@ -100,33 +99,6 @@ class _Experiment(ABC):
         """
         pass
 
-    @property
-    @abstractmethod
-    def monitoring_params(self) -> Dict:
-        """
-        Dictionary with the parameters for monitoring services,
-        like Alchemy_
-
-        .. _Alchemy: https://alchemy.host
-
-        Example::
-
-            >>> experiment.monitoring_params
-            {
-                "token": None, # insert your personal token here
-                "project": "classification_example",
-                "group": "first_trial",
-                "experiment": "first_experiment",
-            }
-
-        .. warning::
-            Deprecated, saved for backward compatibility.
-            Please use
-            :py:mod:`catalyst.contrib.dl.callbacks.alchemy.AlchemyLogger`
-            instead.
-        """
-        pass
-
     @abstractmethod
     def get_state_params(self, stage: str) -> Mapping[str, Any]:
         """Returns State parameters for a given stage.
@@ -149,7 +121,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
 
         Returns:
             dict: State parameters for a given stage.
@@ -172,7 +144,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
 
         Returns:
             Model: model for a given stage.
@@ -191,7 +163,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
 
         Returns:
             Criterion: criterion for a given stage.
@@ -209,7 +181,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
             model (Model): model to optimize with stage optimizer
 
         Returns:
@@ -227,7 +199,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
             optimizer (Optimizer): optimizer to schedule with stage scheduler
 
         Returns:
@@ -251,7 +223,7 @@ class _Experiment(ABC):
         Args:
             model (Model): model to optimize with stage optimizer
             stage (str): stage name of interest,
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
 
         Returns:
             tuple: criterion, optimizer, scheduler for a given stage and model
@@ -266,7 +238,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest,
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
             dataset (str): dataset name of interest,
                 like "train" / "valid" / "infer"
 
@@ -294,7 +266,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest,
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
             epoch (int): epoch index
             **kwargs (dict): additional parameters to use during
                 dataset creation
@@ -338,7 +310,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest,
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
             epoch (int): epoch index
             **kwargs (dict): additional parameters to use during
                 dataset creation
@@ -366,7 +338,7 @@ class _Experiment(ABC):
 
         Args:
             stage (str): stage name of interest
-                like "pretraining" / "training" / "finetuning" / etc
+                like "pretrain" / "train" / "finetune" / etc
 
         Returns:
             OrderedDict[str, Callback]: Ordered dictionary
@@ -383,7 +355,7 @@ class _Experiment(ABC):
         pass
 
 
-class StageBasedExperiment(_Experiment):
+class _StageBasedExperiment(_Experiment):
     """
     Experiment that provides constant
     datasources during training/inference stage.
@@ -417,4 +389,4 @@ class StageBasedExperiment(_Experiment):
         return sample
 
 
-__all__ = ["_Experiment", "StageBasedExperiment"]
+__all__ = ["_Experiment", "_StageBasedExperiment"]
