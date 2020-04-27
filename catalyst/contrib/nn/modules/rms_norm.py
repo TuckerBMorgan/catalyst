@@ -5,7 +5,10 @@ from torch import nn
 class RMSNorm(nn.Module):
     """An implementation of RMS Normalization.
 
-    @TODO: Docs (link to paper). Contribution is welcome.
+    It has been proposed in `Root Mean Square Layer Normalization`_.
+
+    .. _`Root Mean Square Layer Normalization`:
+        https://arxiv.org/abs/1910.07467
     """
 
     def __init__(

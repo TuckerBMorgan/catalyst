@@ -1,10 +1,10 @@
 def foo(a, b):
-    """@TODO: Docs. Contribution is welcome."""
+    """Dummy class for the tests"""
     return {"a": a, "b": b}
 
 
 def bar():
-    """@TODO: Docs. Contribution is welcome."""
+    """Dummy class for the tests."""
     pass
 
 
