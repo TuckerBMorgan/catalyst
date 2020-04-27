@@ -154,7 +154,7 @@ def flatten_dict(
     items = []
     for key, value in dictionary.items():
         new_key = parent_key + separator + key if parent_key else key
-        if isinstance(value, collections.MutableMapping):
+        if isinstance(value, collections.abc.MutableMapping):
             items.extend(
                 flatten_dict(value, new_key, separator=separator).items()
             )
